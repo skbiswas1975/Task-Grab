@@ -63,6 +63,10 @@ const API = {
     });
   },
 
+  // Saves a book to the database
+  postJob: function (postedJobs) {
+    return axios.post("/api/jobs", postedJobs);
+},
 
   // Saves a user to the database
   saveUser(userData) {
