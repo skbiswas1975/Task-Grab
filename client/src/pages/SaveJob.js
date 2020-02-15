@@ -44,7 +44,7 @@ class SaveJob extends Component {
     
       render() {
         return (
-          <div className="App">
+          <div className="savejob">
             
             <Form
               handleChange={this.handleChange}
@@ -58,7 +58,7 @@ class SaveJob extends Component {
                     <ul className="post-tile">
                       <li className="post-tile-name">{job.jobTitle}</li>
                       <li className="post-tile-description">{job.jobDescription}</li>
-                      <li className="post-tile-salary">${job.jobPrice}</li>
+                      <li className="post-tile-price">${job.jobPrice}</li>
                     </ul>
                   </li>
                 ))}
