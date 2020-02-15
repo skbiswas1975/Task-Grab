@@ -2,8 +2,9 @@ import React from "react";
 
 export default ({ handleChange, handleSubmit, postedDetails }) => {
   return (
-    <div className="form-container">
-      <form>
+    <div className="col-md-6">
+    <h3> Job Creation Form </h3>
+      <form className="container-fluid">
         <div className="form-group">
           <input
             className="col-12 form-control"
