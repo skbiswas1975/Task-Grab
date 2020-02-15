@@ -35,9 +35,9 @@ class SaveJob extends Component {
           postedDetails: { jobTitle: "", jobDescription: "", jobPrice: 30000 }
         }));
 
-        console.log(this.postedDetails)
+        console.log(this.state.postedDetails)
 
-        API.postJob(this.postedDetails)
+        API.postJob(this.state.postedDetails)
             .then(this.setState({ message: alert("Your job has been posted") }))
             .catch(err => console.log(err))
       };
