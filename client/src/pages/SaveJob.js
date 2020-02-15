@@ -1,55 +1,72 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
-import JobPost from "../components/JobPost"
+import Form from "../components/JobPost/index"
 
 
 class SaveJob extends Component {
-    //create state
     constructor(props) {
         super(props);
-    this.state = {
-        jobdetails: {
-            jobId: "001",
-            jobTitle: "New Job",
-            jobDescription : "This is description of New Job",
-            jobPrice: 1
+        this.state = {
+          postedDetails: {
+            jobTitle: "",
+            jobDescription: "",
+            jobPrice: 30000
           },
-        error: "",
-        message: ""
-    };   
-}
+          jobs: []
+        };
+      }
     
-    handleChange = event => {
-
-        const { jobTitle, value } = event.target;
+      handleChange = e => {
+          //console.log(e.target);
+        const { name, value } = e.target;
+        
     
         this.setState(prevState => ({
-            jobdetails: { ...prevState.jobTitle, [jobTitle]: value }
+            postedDetails: { ...prevState.postedDetails, [name]: value }
         }));
-      }
+      };
+    
+      handleSubmit = e => {
+        e.preventDefault();
+    
+        this.setState(prevState => ({
+          jobs: [...prevState.jobs, prevState.postedDetails],
+          postedDetails: { jobTitle: "", jobDescription: "", jobPrice: 30000 }
+        }));
 
-    handleJPostButton = event => {
-        // console.log(event)
-        event.preventDefault();
-        console.log("this.state.jobdetails")
-        console.log(this.state.jobdetails)
-        let postedJob = this.state.jobdetails;
-        console.log("postedJob")
-        console.log(postedJob)
+        console.log(this.postedDetails)
 
-        API.postJob(postedJob)
-            .then(this.setState({ message: alert("Your job is posted") }))
+        API.postJob(this.postedDetails)
+            .then(this.setState({ message: alert("Your job has been posted") }))
             .catch(err => console.log(err))
-    }
-    render() {
-        console.log("entry point")
+      };
+    
+      render() {
         return (
+          <div className="App">
             
-            <JobPost jobdetails={this.state.jobdetails} handleJPostButton={this.handleJPostButton} />
-               
-        )
-    }
+            <Form
+              handleChange={this.handleChange}
+              postedDetails={this.state.postedDetails}
+              handleSubmit={this.handleSubmit}
+            />
+            <div className="post-container">
+              <ul>
+                {this.state.jobs.map((job, index) => (
+                  <li key={index}>
+                    <ul className="post-tile">
+                      <li className="post-tile-name">{job.jobTitle}</li>
+                      <li className="post-tile-description">{job.jobDescription}</li>
+                      <li className="post-tile-salary">${job.jobPrice}</li>
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        );
+      }
 
 
 }
