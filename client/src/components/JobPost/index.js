@@ -35,7 +35,7 @@ export default ({ handleChange, handleSubmit, postedDetails }) => {
           />
         </div>
         <button className="btn btn-primary" onClick={handleSubmit}>
-          Submit
+          Submit job details
         </button>
       </form>
     </div>
