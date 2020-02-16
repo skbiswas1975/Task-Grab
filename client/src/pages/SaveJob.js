@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-
+import { Container} from "../components/Grid";
 import Form from "../components/JobPost/index"
 
 
@@ -9,6 +9,7 @@ class SaveJob extends Component {
         super(props);
         this.state = {
           postedDetails: {
+            jobId: "001",
             jobTitle: "",
             jobDescription: "",
             jobPrice: 30000
@@ -32,19 +33,21 @@ class SaveJob extends Component {
     
         this.setState(prevState => ({
           jobs: [...prevState.jobs, prevState.postedDetails],
-          postedDetails: { jobTitle: "", jobDescription: "", jobPrice: 30000 }
+          postedDetails: { jobId:"", jobTitle: "", jobDescription: "", jobPrice: 30000 }
         }));
 
         console.log(this.state.postedDetails)
 
-        API.postJob(this.state.postedDetails)
+        API.saveTask(this.state.postedDetails)
             .then(this.setState({ message: alert("Your job has been posted") }))
             .catch(err => console.log(err))
       };
     
       render() {
         return (
-          <div className="savejob">
+          <Container fluid className="container">
+                
+                <Container>
             
             <Form
               handleChange={this.handleChange}
@@ -64,7 +67,8 @@ class SaveJob extends Component {
                 ))}
               </ul>
             </div>
-          </div>
+          </Container>
+          </Container>
         );
       }
 
