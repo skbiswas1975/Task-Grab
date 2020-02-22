@@ -5,7 +5,6 @@
   "author": "TBD",
   "license": "MIT",
   "main": "server.js",
-  "proxy": "http://localhost:3001/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rbriekhof/Task-Grab"
@@ -16,10 +15,10 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "server": "npm kill && nodemon",
-    "client": "cd client && npm start",
-    "install": "cd client && npm install",
-    "build": "cd client && npm build",
-    "heroku-postbuild": "npm build",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm run install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
     "lint": "eslint --quiet .",
     "lint:fix": "eslint --fix .",
     "test:coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -52,7 +51,6 @@
     "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
-    "sequelize-cli": "^5.5.1",
     "supertest": "^4.0.2"
   },
   "dependencies": {
@@ -73,7 +71,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-session": "^1.0.2",
-    "react-router-dom": "^5.1.2",
-    "sequelize": "^4.44.3"
+    "react-router-dom": "^5.1.2"
   }
 }

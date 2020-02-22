@@ -39,7 +39,7 @@ class SaveJob extends Component {
         console.log(this.state.postedDetails)
 
         API.saveTask(this.state.postedDetails)
-            .then(this.setState({ message: alert("Your job has been posted") }))
+            .then(this.setState({ message: "Your job has been posted" }))
             .catch(err => console.log(err))
       };
     
