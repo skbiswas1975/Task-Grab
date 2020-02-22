@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "TBD",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "install": "^0.13.0",
     "react": "^16.12.0",

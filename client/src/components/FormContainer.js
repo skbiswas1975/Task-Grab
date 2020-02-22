@@ -65,7 +65,7 @@ class FormContainer extends Component {
     console.log("desc:");
     console.log();
     alert("You are submitting : \n" + this.state.newJob.jobTitle +"\n"+ this.state.newJob.jobDescription);
-    {/*
+    {
     fetch("#", {
       method: "POST",
       body: JSON.stringify(jobData),
@@ -78,7 +78,7 @@ class FormContainer extends Component {
         console.log("Successful" + data);
       });
     });
-*/}
+}
 API.postJob(jobData)
 .then(
     
