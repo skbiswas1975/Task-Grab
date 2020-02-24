@@ -179,14 +179,14 @@ class SavedJobs extends Component {
                                                         </Row>
                                                         </div>
                                                         <br />
-                                                    </div>
-                                                <br></br>
-                                                <button className="deleteBook btn btn-success" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                        <button className="deleteBook btn btn-success" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
                                                     Confirm
                                                 </button>
                                                 <button className="deleteBook btn btn-danger" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
                                                     Decline
                                                 </button>
+                                                    </div>
+                                                
                                             </Row>
                                         </div>
                                         </div>
@@ -215,11 +215,11 @@ class SavedJobs extends Component {
                                                                 </Row>
                                                                 </div>
                                                                 <br />
+                                                                <button className="deleteBook btn btn-default" disabled="disabled" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                                Job already started
+                                                                </button>
                                                             </div>
-                                                        <br></br>
-                                                        <button className="deleteBook btn btn-default" disabled="disabled" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
-                                                            Job already started
-                                                        </button>
+                                                        
                                                     </Row>
                                                 </div>
                                                 </div>
@@ -246,11 +246,11 @@ class SavedJobs extends Component {
                                                                 </Row>
                                                                 </div>
                                                                 <br />
+                                                                <button className="deleteBook btn btn-primary" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                                Accept Job
+                                                                </button>
                                                             </div>
-                                                        <br></br>
-                                                        <button className="deleteBook btn btn-primary" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
-                                                            Accept Job
-                                                        </button>
+                                                        
                                                     </Row>
                                                 </div>
                                             </div>
