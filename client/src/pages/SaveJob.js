@@ -12,7 +12,9 @@ class SaveJob extends Component {
             jobId: "001",
             jobTitle: "",
             jobDescription: "",
-            jobPrice: 30000
+            jobPrice: 30000,
+            jobStatus:null,
+            jobPoster: "Administrator"
           },
           jobs: []
         };
@@ -33,7 +35,7 @@ class SaveJob extends Component {
     
         this.setState(prevState => ({
           jobs: [...prevState.jobs, prevState.postedDetails],
-          postedDetails: { jobId:"", jobTitle: "", jobDescription: "", jobPrice: 30000 }
+          postedDetails: { jobId:"", jobTitle: "", jobDescription: "", jobPrice: 30000, jobPoster: "" }
         }));
 
         console.log(this.state.postedDetails)
@@ -59,6 +61,7 @@ class SaveJob extends Component {
                 {this.state.jobs.map((job, index) => (
                   <li key={index}>
                     <ul className="post-tile">
+                    <li className="post-tile-price">{job.jobPoster}</li>
                       <li className="post-tile-name">{job.jobTitle}</li>
                       <li className="post-tile-description">{job.jobDescription}</li>
                       <li className="post-tile-price">${job.jobPrice}</li>
