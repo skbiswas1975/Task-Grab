@@ -135,6 +135,20 @@ class SavedJobs extends Component {
         
 
 */
+confirmClick(jobId, e) {
+        alert(jobId + 'Confirmed!');
+        API.updateTask(jobId, "confirmed")
+            .then(this.setState({ message: "Your job has been posted" }))
+            .catch(err => console.log(err))
+      }
+
+      declineClick(jobId, e) {
+        alert(jobId + 'Declined!');
+      }
+
+      acceptClick(jobId, e) {
+        alert(jobId + 'Accepted!');
+      }
 
         const SavedJobs = props => {
             return (
@@ -182,7 +196,7 @@ class SavedJobs extends Component {
                                                         <button className="deleteBook btn btn-success" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
                                                     Confirm
                                                 </button>
-                                                <button className="deleteBook btn btn-danger" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                <button className="declineJob btn btn-danger" onClick={(e) => this.declineClick(post.jobId)}>
                                                     Decline
                                                 </button>
                                                     </div>
