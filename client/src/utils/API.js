@@ -106,15 +106,15 @@ const API = {
 
   getTasks() {
     console.log("get tasks entry")
-    //let JWToken = this.getJWT();
-    //console.log(JWToken)
-    return axios.get("/api/tasklist"
-    /*,
+    let JWToken = this.getJWT();
+    console.log(JWToken)
+    return axios.get("/api/v1/tasklist"
+    ,
       {
         headers: {
           Authorization: `Bearer ${JWToken}`
         }
-      }*/
+      }
     ).catch(err => {
       if (err.response.status === 401) {
         console.log("Unauthorized");
