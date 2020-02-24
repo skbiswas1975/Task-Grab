@@ -135,6 +135,20 @@ class SavedJobs extends Component {
         
 
 */
+confirmClick(jobId, e) {
+        alert(jobId + 'Confirmed!');
+        API.updateTask(jobId, "confirmed")
+            .then(this.setState({ message: "Your job has been posted" }))
+            .catch(err => console.log(err))
+      }
+
+      declineClick(jobId, e) {
+        alert(jobId + 'Declined!');
+      }
+
+      acceptClick(jobId, e) {
+        alert(jobId + 'Accepted!');
+      }
 
         const SavedJobs = props => {
             return (
@@ -181,10 +195,10 @@ class SavedJobs extends Component {
                                                         <br />
                                                     </div>
                                                 <br></br>
-                                                <button className="deleteBook btn btn-success" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                <button className="confirmJob  btn btn-success" style={{"margin-left":"-15px"}} onClick={(e) => this.confirmClick(post.jobId)}>
                                                     Confirm
                                                 </button>
-                                                <button className="deleteBook btn btn-danger" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                <button className="declineJob btn btn-danger" onClick={(e) => this.declineClick(post.jobId)}>
                                                     Decline
                                                 </button>
                                             </Row>
@@ -217,7 +231,7 @@ class SavedJobs extends Component {
                                                                 <br />
                                                             </div>
                                                         <br></br>
-                                                        <button className="deleteBook btn btn-default" disabled="disabled" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                        <button className="deleteBook btn btn-default" style={{"margin-left":"-15px"}} disabled="disabled">
                                                             Job already started
                                                         </button>
                                                     </Row>
@@ -248,7 +262,7 @@ class SavedJobs extends Component {
                                                                 <br />
                                                             </div>
                                                         <br></br>
-                                                        <button className="deleteBook btn btn-primary" id={savedjob._id} onClick={() => props.handleDeleteButton(savedjob._id)}>
+                                                        <button className="deleteBook btn btn-primary" style={{"margin-left":"-15px"}} onClick={(e) => this.acceptClick(post.jobId)}>
                                                             Accept Job
                                                         </button>
                                                     </Row>
