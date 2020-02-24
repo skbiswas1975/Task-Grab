@@ -13,7 +13,7 @@ class SavedJobs extends Component {
         console.log("did mount")
         console.log(this.savedJobs);
         API.getTasks()
-            .then(res => console.log("success"))
+            .then(res => this.setState({ savedBooks: res.data })
             .catch(err => console.log("failed"))
     }
 
