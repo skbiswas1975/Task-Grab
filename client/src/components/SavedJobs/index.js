@@ -137,7 +137,9 @@ class SavedJobs extends Component {
 */
 
         const SavedJobs = props => {
-            return (props.savedJobs.length === 0) ? (
+            return (
+                console.log (props.savedJobs),
+                props.savedJobs.length === 0) ? (
                 
                 <div className="card">
                 {console.log("length 0")}
@@ -157,7 +159,7 @@ class SavedJobs extends Component {
                             {props.savedJobs.map(savedjob => {
                                 return (savedjob.jobStatus==="accepted")?
                                     (
-                                        <div class="col-lg-12 bottom-pad">
+                                     <div class="col-lg-12 bottom-pad">
                                                 <div class="row no-gutters">
                                             <Row className="SearchResult row" id={savedjob.jobTitle + "Card"} key={savedjob._id}>
                                                 

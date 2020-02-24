@@ -17,15 +17,15 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/job";
+/* var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/job";
 // Set mongoose to leverage built in JavaScript ES6 Promises	// Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true}); */
 
 // Connet to mongoose
-/* mongoose.connect(process.env.MONGODB_URI || "mongodb://biswas:testing123@ds117145.mlab.com:17145/heroku_z8mn8k1z");
- */
+mongoose.connect(process.env.MONGODB_URI || "mongodb://biswas:testing123@ds117145.mlab.com:17145/heroku_z8mn8k1z");
+
 
 app.listen(PORT, () => {
   console.log (`🌎==> API server now on port ${PORT}!`);
