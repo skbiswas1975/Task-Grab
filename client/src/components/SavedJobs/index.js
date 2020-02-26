@@ -60,13 +60,15 @@ import posts from '../LocalPosts/posts';
                                                     </Row>
                                                     </div>
                                                     <br />
-                                                    <button className="confirmJob  btn btn-success" style={{"margin-left":"-15px"}} onClick={(e) => this.confirmClick(savedjob.jobId)}>
-                                                Confirm
-                                            </button>
-                                            {" "}
-                                            <button className="declineJob btn btn-danger" onClick={(e) => this.declineClick(savedjob.jobId)}>
-                                                Decline
-                                            </button>
+                                                    <button className="btn btn-success" id={savedjob.jobId} onClick={() => props.confirmClick(savedjob.jobId)}>
+                                                    {/*onClick={(e) => this.confirmClick(savedjob.jobId)}>*/}
+                                                        Confirm
+                                                    </button>
+                                        {" "}
+                                                    <button className="btn btn-danger" id={savedjob.jobId} onClick={() => props.declineClick(savedjob.jobId)}>
+                                                    {/*onClick={(e) => this.declineClick(savedjob.jobId)}>*/}
+                                                        Decline
+                                                    </button>
                                                 </div>
                                             
                                         </Row>
@@ -97,7 +99,7 @@ import posts from '../LocalPosts/posts';
                                                             </Row>
                                                             </div>
                                                             <br />
-                                                            <button className="deleteBook btn btn-default" style={{"margin-left":"-15px"}} disabled="disabled">
+                                                            <button className="btn btn-default" style={{"margin-left":"-15px"}} disabled="disabled">
                                                         Job already started
                                                     </button>
                                                         </div>
@@ -128,9 +130,10 @@ import posts from '../LocalPosts/posts';
                                                             </Row>
                                                             </div>
                                                             <br />
-                                                            <button className="deleteBook btn btn-primary" style={{"margin-left":"-15px"}} onClick={(e) => this.acceptClick(savedjob.jobId)}>
-                                                             Accept Job
-                                                             </button>
+                                                            <button className="btn btn-primary" id={savedjob.jobId} onClick={() => props.acceptClick(savedjob.jobId)}>
+                                                            {/*onClick={(e) => this.acceptClick(savedjob.jobId)}>*/}
+                                                                Accept Job
+                                                            </button>
                                                         </div>
                                                     
                                                 </Row>
