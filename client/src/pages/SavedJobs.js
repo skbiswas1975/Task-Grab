@@ -17,6 +17,35 @@ class SavedJobs extends Component {
             .catch(err => console.log("failed"))
     }
 
+    
+    acceptClick = event => {
+        // console.log(event)
+        event.preventDefault();
+
+        API.updateTask(updatedJobs)
+            .then(this.setState({ message: alert("Your job is updated") }))
+            .catch(err => console.log(err))
+    }
+
+
+    confirmClick = event => {
+        // console.log(event)
+        event.preventDefault();
+
+        API.updateTask(updatedJobs)
+            .then(this.setState({ message: alert("Your job is updated") }))
+            .catch(err => console.log(err))
+    }
+
+    declineClick = event => {
+        // console.log(event)
+        event.preventDefault();
+
+        API.updateTask(updatedJobs)
+            .then(this.setState({ message: alert("Your job is updated") }))
+            .catch(err => console.log(err))
+    }
+
     //function to update job details by id
     handleUpdateButton = id => {
         console.log("");
